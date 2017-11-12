@@ -1,0 +1,31 @@
+{
+    "name": "folivaresrios/chileanvacation",
+    "type": "library",
+    "description": "Package que permite calcular las vacaciones proporcionales como progresivas basado en la ley Chilena",
+    "keywords": ["chileanvacation", "chile", "vacaciones", "progresivas"],
+    "homepage": "https://github.com/folivaresrios/chileanvacation",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Fabián Olivares Ríos",
+        "email": "f.olivaresrios@gmail.com",
+        "role": "Developer"
+      }
+    ],
+    "require": {
+        "php": ">= 7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "KissDev\\ChileanVacation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4"
+    }
+}
