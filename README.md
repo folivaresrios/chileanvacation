@@ -1,6 +1,6 @@
 kissDev ChileanVacation Package
 ===================
-[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
+[ ![Codeship Status for folivaresrios/chileanvacation](https://app.codeship.com/projects/ad81cc20-a96e-0135-1af4-7260d9433da9/status?branch=master)](https://app.codeship.com/projects/256358) [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
 ChileanVacation permite calcular las vacaciones proporcionales como progresivas basado en la ley Chilena
 
