@@ -2,14 +2,9 @@
 
 namespace KissDev\ChileanVacation\Contracts;
 
-
 /**
  * Interface ChileanHoliday
- * @package Contracts
- */
-/**
- * Interface ChileanHoliday
- * @package KissDev\Vacation\Contracts
+ * @package KissDev\ChileanVacation\Contracts
  */
 interface ChileanHoliday
 {

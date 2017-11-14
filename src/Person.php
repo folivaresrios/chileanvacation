@@ -2,124 +2,34 @@
 
 namespace KissDev\ChileanVacation;
 
+use KissDev\ChileanVacation\Contracts\Employment;
 use KissDev\ChileanVacation\Contracts\NaturalPerson;
 
 /**
  * Class Person
- * @package KissDev\Vacation
+ * @package KissDev\ChileanVacation
  */
 class Person implements NaturalPerson
 {
     /**
-     * @var \DateTime
+     * @var \KissDev\ChileanVacation\Employment
      */
-    protected $startDateJob;
-
-    /**
-     * @var \DateTime
-     */
-    protected $endDateJob;
-
-    /**
-     * @var array
-     */
-    protected $vacationDaysTaken;
-
-    /**
-     * @var int
-     */
-    protected $quotedYears;
-
-    /**
-     * @var \DateTime
-     */
-    protected $documentDeliveryDate;
-
-    /**
-     * @var array
-     */
-    protected $progressiveDaysTaken;
+    protected $job;
 
     /**
      * Person constructor.
-     * @param string $startDateJob
-     * @param string $endDateJob
-     * @param array $vacationDaysTaken
-     * @param array $progressiveDaysTaken
-     * @param int $quotedYears
-     * @param string $documentDeliveryDate
+     * @param Employment $job
      */
-    public function __construct(string $startDateJob, string $endDateJob = null, array $vacationDaysTaken = [], array $progressiveDaysTaken = [], int $quotedYears = 0, string $documentDeliveryDate = null)
+    public function __construct(Employment $job)
     {
-        $this->startDateJob = new \DateTime($startDateJob);
-        $this->endDateJob = ($endDateJob) ? new \DateTime($endDateJob) : $endDateJob;
-        $this->vacationDaysTaken = $vacationDaysTaken;
-        $this->quotedYears = $quotedYears;
-        $this->documentDeliveryDate = ($documentDeliveryDate) ? new \DateTime($documentDeliveryDate) : $documentDeliveryDate;
-        $this->progressiveDaysTaken = $progressiveDaysTaken;
+        $this->job = $job;
     }
 
     /**
-     * @return \DateTime
+     * @return Employment
      */
-    public function getStartDateJob(): \DateTime
+    public function job() : Employment
     {
-        return $this->startDateJob;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getEndDateJob(): \DateTime
-    {
-        return $this->endDateJob;
-    }
-
-    /**
-     * @return array
-     */
-    public function getVacationsDaysTaken(): array
-    {
-        return $this->vacationDaysTaken;
-    }
-
-    /**
-     * @return array
-     */
-    public function getCountVacationsDaysTaken(): int
-    {
-        return count($this->vacationDaysTaken);
-    }
-
-    /**
-     * @return array
-     */
-    public function getProgressiveDaysTaken(): array
-    {
-        return $this->progressiveDaysTaken;
-    }
-
-    /**
-     * @return array
-     */
-    public function getCountProgressiveDaysTaken(): int
-    {
-        return count($this->progressiveDaysTaken);
-    }
-
-    /**
-     * @return int
-     */
-    public function getQuotedYears(): int
-    {
-        return $this->quotedYears;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getDocumentDeliveryDate(): \DateTime
-    {
-        return $this->documentDeliveryDate;
+        return $this->job;
     }
 }
