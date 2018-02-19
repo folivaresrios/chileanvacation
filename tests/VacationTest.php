@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-
 class VacationTest extends TestCase
 {
     /**
@@ -47,8 +46,7 @@ class VacationTest extends TestCase
         $this->vacation = $this->createVacation();
         $this->job = $this->createJob('31-12-2010', '31-12-2017', $this->holiday, $this->certificate);
         $this->person = $this->createPerson($this->job);
-
-        $this->assertEquals(5, $this->vacation->getProgressiveVacations($this->person));
+        $this->assertEquals(5, $this->vacation->getProgressiveVacations($this->person, '2017', '11'));
     }
 
     /**
@@ -61,8 +59,9 @@ class VacationTest extends TestCase
         $this->vacation = $this->createVacation('07-12-2017', 1, 12, 1);
         $this->job = $this->createJob('31-12-2010', '31-12-2017', $this->holiday, $this->certificate);
         $this->person = $this->createPerson($this->job);
-        $this->assertEquals(3, $this->vacation->getRemainingProgressiveVacations($this->person));
+        $this->assertEquals(3, $this->vacation->getRemainingProgressiveVacations($this->person, '2017', '11'));
     }
+
     /**
      * @test
      */

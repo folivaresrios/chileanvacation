@@ -151,16 +151,16 @@ class Vacation
      * @param NaturalPerson $naturalPerson
      * @return int
      */
-    public function getRemainingProgressiveVacations(NaturalPerson $naturalPerson): int
+    public function getRemainingProgressiveVacations(NaturalPerson $naturalPerson, $year, $month): int
     {
-        return $this->getProgressiveVacations($naturalPerson) - $this->progressiveDaysTaken - $this->requestedDays;
+        return $this->getProgressiveVacations($naturalPerson, $year, $month) - $this->progressiveDaysTaken - $this->requestedDays;
     }
 
     /**
      * @param NaturalPerson $naturalPerson
      * @return int
      */
-    public function getProgressiveVacations(NaturalPerson $naturalPerson): int
+    public function getProgressiveVacations(NaturalPerson $naturalPerson, $year = null, $month = null): int
     {
         $vacationYear = (int)$naturalPerson->job()->getStartDate()->format('Y') + (13 - $naturalPerson->job()->certificate()->getQuotedYears());
         $startYear = 3;
@@ -170,8 +170,7 @@ class Vacation
         $vacations = [];
         while ($progressiveYear <= $totalYearPostStartJob) {
             if ((int)$naturalPerson->job()->certificate()->getDocumentDeliveryDate()->format('Y') <= ($vacationYear + $progressiveYear)) {
-                if (($vacationYear + $progressiveYear) == (new \DateTime())->format('Y') && $naturalPerson->job()->certificate()->getDocumentDeliveryDate()->format('m') > (new \DateTime())->format('m')) {
-
+                if (($vacationYear + $progressiveYear) == ($year ?? (new \DateTime())->format('Y')) && $naturalPerson->job()->certificate()->getDocumentDeliveryDate()->format('m') > ($month ?? (new \DateTime())->format('m'))) {
                 } else {
                     $vacations[$vacationYear + $progressiveYear] = floor($startYear / 3);
                     $startYear++;
